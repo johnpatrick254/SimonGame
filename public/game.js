@@ -66,7 +66,21 @@ $('.btn').on('click', function () {
 
 //Game Start//
 
-$('body').on('keypress', nextSequence);
+let gameStart = 0;
+$('body').on('click',function(){
+    if(gameStart === 1){
+    nextSequence()
+}
+gameStart ++;
+}
+);
+$('body').on('keypress',function(){
+    if(gameStart === 1){
+    nextSequence()
+}
+gameStart ++;
+}
+);
 
 function checkAnswer(currentLevel){
     if ( gamePattern[currentLevel] === userClickedPattern[currentLevel]){
@@ -83,6 +97,7 @@ function checkAnswer(currentLevel){
 }
 
 function gameOver(){
+    gameStart =0
     level = 0 ;
     gamePattern = [];
     userClickedPattern = [];
