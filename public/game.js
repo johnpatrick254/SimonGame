@@ -116,4 +116,7 @@ function gameOver() {
   wrong.play();
   $("#level-title").text("Game Over! Press Any Key To Restart");
   $("body").one("keypress", nextSequence);
+  if(currentScore == 0){
+    $("#highscore").text('')
+  }
 }
