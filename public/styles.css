@@ -6,7 +6,14 @@ body {
   
 }
 
-
+#highscore{
+  font-family: 'Press Start 2P', cursive;
+  position: fixed;
+  top: 0;
+  right:1%;
+  font-size: 1rem;
+  color: #FEF2BF;
+}
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
