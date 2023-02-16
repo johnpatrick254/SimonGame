@@ -1,5 +1,14 @@
-//Arrays
 
+let refresh = true ;
+console.log("hi");
+
+if(refresh === true){
+    loadedPage();
+    var audio = new Audio('sounds/wrong.mp3');
+    audio.play();
+    refresh != refresh
+}
+//Arrays
 var randomPattern = [];
 var playerInput = [];
 
@@ -9,6 +18,12 @@ var rpLength = randomPattern.length;
 //game start
 //Animation functions
 
+function loadedPage (){
+    displayRed();
+    displayYellow();
+    displayBlue();
+    displayGreen();
+}
 function displayRestart(){
     $(' #green').addClass('pressed');
     var audio = new Audio('sounds/blue.mp3');
