@@ -1,7 +1,7 @@
 
 let refresh = true ;
-console.log("hi");
 
+console.log("hi");
 if(refresh === true){
     loadedPage();
     var audio = new Audio('sounds/wrong.mp3');

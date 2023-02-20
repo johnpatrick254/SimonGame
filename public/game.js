@@ -3,6 +3,10 @@ var gamePattern = [];
 var userClickedPattern = [];
 let bigScore = 0;
 let currentScore = 0;
+let reLoaded = 0;
+let highScore =  "High Score " + "level " + bigScore
+
+
 
 var buttonColors = ["red", "blue", "green", "yellow"];
 
@@ -65,12 +69,24 @@ $(".btn").on("click", function () {
 let gameStart = 0;
 $("body").on("click", function () {
   if (gameStart === 1) {
+    if(reLoaded < 1){
+      loadedPage();
+      reLoaded ++;
+    }
+    highScore = "High Score " + "level " + bigScore;
+    $("#highscore").text(highScore);
     nextSequence();
   }
   gameStart++;
 });
 $("body").on("keypress", function () {
   if (gameStart === 1) {
+    
+    if(reLoaded < 1){
+      console.log("first-time load")
+      loadedPage();
+      reLoaded ++;
+    }
     nextSequence();
   }
   gameStart++;
@@ -86,7 +102,7 @@ function checkAnswer(currentLevel) {
         if (bigScore < currentScore) {
           bigScore = currentScore;
         }
-        let highScore = "High Score " + "level " + bigScore;
+         highScore = "High Score " + "level " + bigScore;
         $("#highscore").text(highScore);
         console.log(bigScore);
         console.log(currentScore);
@@ -99,6 +115,46 @@ function checkAnswer(currentLevel) {
     gameOver();
   }
 }
+
+
+function displayGreen(){
+ 
+  var audio = new Audio('sounds/blue.mp3');
+  audio.play();     
+  
+
+}
+function displayRed(){
+  
+  var audio = new Audio('sounds/blue.mp3');
+  audio.play();     
+ 
+
+}
+function displayYellow(){
+  var audio = new Audio('sounds/blue.mp3');
+  audio.play();     
+
+}
+function displayBlue(){
+  var audio = new Audio('sounds/blue.mp3');
+  audio.play();     
+
+}
+function displayRes(){
+ 
+  var audio = new Audio('sounds/wrong.mp3');
+  audio.play();     
+  
+}
+
+function loadedPage (){
+  displayRed();
+  displayYellow();
+  displayBlue();
+  displayGreen();
+console.log("first-time load")
+} 
 
 function gameOver() {
   currentScore = 0;
@@ -116,7 +172,7 @@ function gameOver() {
   wrong.play();
   $("#level-title").text("Game Over! Press Any Key To Restart");
   $("body").one("keypress", nextSequence);
-  if(currentScore == 0){
+  if (currentScore == 0) {
     $("#highscore").text('')
   }
 }
