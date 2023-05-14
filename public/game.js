@@ -11,7 +11,7 @@ let highScore =  "High Score " + "level " + bigScore
 var buttonColors = ["red", "blue", "green", "yellow"];
 
 function playSound(name) {
-  var audio = new Audio("sounds/" + name + ".mp3");
+  var audio = new Audio(__dirname + "sounds/" + name + ".mp3");
 
   audio.play(name);
 }
@@ -119,31 +119,31 @@ function checkAnswer(currentLevel) {
 
 function displayGreen(){
  
-  var audio = new Audio('sounds/blue.mp3');
+  var audio = new Audio(__dirname + 'sounds/blue.mp3');
   audio.play();     
   
 
 }
 function displayRed(){
   
-  var audio = new Audio('sounds/blue.mp3');
+  var audio = new Audio(__dirname + 'sounds/blue.mp3');
   audio.play();     
  
 
 }
 function displayYellow(){
-  var audio = new Audio('sounds/blue.mp3');
+  var audio = new Audio(__dirname + 'sounds/blue.mp3');
   audio.play();     
 
 }
 function displayBlue(){
-  var audio = new Audio('sounds/blue.mp3');
+  var audio = new Audio(__dirname + 'sounds/blue.mp3');
   audio.play();     
 
 }
 function displayRes(){
  
-  var audio = new Audio('sounds/wrong.mp3');
+  var audio = new Audio(__dirname + 'sounds/wrong.mp3');
   audio.play();     
   
 }
@@ -168,7 +168,7 @@ function gameOver() {
   setTimeout(function () {
     $("body").removeClass("game-over");
   }, 100);
-  var wrong = new Audio("sounds/wrong.mp3");
+  var wrong = new Audio(__dirname + "sounds/wrong.mp3");
   wrong.play();
   $("#level-title").text("Game Over! Press Any Key To Restart");
   $("body").one("keypress", nextSequence);
